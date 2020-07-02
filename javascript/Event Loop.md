@@ -94,6 +94,7 @@
     |setTimeout1 | process1|
     |&nbsp; | await1|
     |&nbsp; | then1|
+
     这是第一轮事件循环结束时候各个Event Queue的情况，此时已经输出 1 2 4 10 12
     <br>
     这时候存在process1，await1，then1三个微任务，进行依次执行
@@ -101,9 +102,9 @@
     * 取到await1， 就是async1放进去的Promise，执行Promise时候发现了遇到了他的reslove函数，（这里这个reslove函数又会被放入微任务Event Queue中，记为await2，然后再次跳出async1函数继续执行下一个微任务）
     * 执行then1输出11
 
-    宏任务Event Queue | 微任务Event Queue
-    -  | :-: | -:
-    setTimeout1 | await2
+    |宏任务Event Queue | 微任务Event Queue|
+    | - | - |
+    |setTimeout1 | await2|
 
     到这里输出1 2 4 10 12 5 11，然后我们的第一次微任务执行完毕了 新加入了一个await2的微任务在微任务Event Queue中。
     <br>
@@ -117,10 +118,10 @@
     * 遇到process.nextTick()，被分发到微任务Event Queue中去，记为process2
     * 遇到new Promise立即执行后输出8，然后then被分发到微任务Event Queue，记为then2
 
-    宏任务Event Queue | 微任务Event Queue
-      -  | :-: | -:
-      &nbsp; | process2
-      &nbsp; | then2
+    |宏任务Event Queue | 微任务Event Queue|
+    | - | -|
+    |&nbsp; | process2|
+    |&nbsp; | then2|
     上述表格为二轮事件循环结束各个Event Queue的情况，这时候的情况是存在两个微任务process2和then2
 
     * 执行process2， 输出7
