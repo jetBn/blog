@@ -89,11 +89,11 @@
     * 遇到Promise, new Promise直接执行，输出10。then被分发到微任务Event Queue中。记为then1
     * 遇到console.log 输出12
 
-    宏任务Event Queue | 微任务Event Queue
-    -  | :-: | -:
-    setTimeout1 | process1
-    &nbsp; | await1
-    &nbsp; | then1
+    |宏任务Event Queue | 微任务Event Queue|
+    |-|-|
+    |setTimeout1 | process1|
+    |&nbsp; | await1|
+    |&nbsp; | then1|
     这是第一轮事件循环结束时候各个Event Queue的情况，此时已经输出 1 2 4 10 12
     <br>
     这时候存在process1，await1，then1三个微任务，进行依次执行
