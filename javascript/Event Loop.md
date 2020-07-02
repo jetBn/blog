@@ -122,6 +122,7 @@
     | - | -|
     |&nbsp; | process2|
     |&nbsp; | then2|
+    
     上述表格为二轮事件循环结束各个Event Queue的情况，这时候的情况是存在两个微任务process2和then2
 
     * 执行process2， 输出7
