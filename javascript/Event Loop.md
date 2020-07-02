@@ -1,11 +1,13 @@
 # Event Loop
 
 1. 关于javascirpt
+
     javascript是一门单线程的语言， 虽然HTML5提出了web-work这样多线程解决方案，但是依旧没有改变javascript是单线程的本质。
     <br>
     > 关于HMLT5的web-work
       它其实就是将一些大量的计算代码交给web work去处理运行而不冻结用户界面，就是阻塞UI的渲染，但是子线程是完全受主线程的控制的，而且不能和页面进行交互，如获取元素， alert等，但是线程之间是可以进行传递数据的。
 2. javascript的事件循环 
+
     由于js是单线程的，就是同一个时间只能做同一个事情，那么就引出问题了，我们访问一个页面的时候，比如有很多的图片、视频等等资源，加载的时候我们肯定不是在那等的，所以就引入两种任务 同步任务与异步任务。
     
     ![Image text](https://raw.githubusercontent.com/jetBn/blog/master/assets/md_images/event_loop1.png)
@@ -122,7 +124,7 @@
     | - | -|
     |&nbsp; | process2|
     |&nbsp; | then2|
-    
+
     上述表格为二轮事件循环结束各个Event Queue的情况，这时候的情况是存在两个微任务process2和then2
 
     * 执行process2， 输出7
